@@ -108,7 +108,7 @@ describe Sanitizable do
   context 'skip sanitation macro' do
     it 'skips sanitation for attribute without context' do
       User.sanitizes :first_name, with: :upcase
-      User.skip_sanitization :first_name
+      User.skip_sanitization_on :first_name
 
       user = User.create(first_name: 'Tobias')
       expect(user.first_name).to eq 'Tobias'
@@ -116,7 +116,7 @@ describe Sanitizable do
 
     it 'skips sanitation for attribute in same context' do
       User.sanitizes :first_name, with: :upcase, on: :create
-      User.skip_sanitization :first_name, on: :create
+      User.skip_sanitization_on :first_name, on: :create
 
       user = User.create(first_name: 'Tobias')
       expect(user.first_name).to eq 'Tobias'
@@ -124,7 +124,7 @@ describe Sanitizable do
 
     it 'does not skip sanitation for attribute in main context' do
       User.sanitizes :first_name, with: :upcase, on: :create
-      User.skip_sanitization :first_name
+      User.skip_sanitization_on :first_name
 
       user = User.create(first_name: 'Tobias')
       expect(user.first_name).to eq 'TOBIAS'
@@ -132,7 +132,7 @@ describe Sanitizable do
 
     it 'does not skip sanitation for attribute in another context' do
       User.sanitizes :first_name, with: :upcase, on: :create
-      User.skip_sanitization :first_name, on: :update
+      User.skip_sanitization_on :first_name, on: :update
 
       user = User.create(first_name: 'Tobias')
       expect(user.first_name).to eq 'TOBIAS'
