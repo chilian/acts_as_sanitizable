@@ -19,8 +19,9 @@ describe ActsAsSanitizable do
     expect(user.email).to eq("christoph@chilian.de")
   end
 
-
-
-
+  it "username should be downcased gsub'ed" do
+    user = create(:user, username: '@YamYam')
+    expect(user.username).to eq 'yamyam'
+  end
 
 end
