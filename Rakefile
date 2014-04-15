@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "acts_as_sanitizable"
   gem.homepage = "http://github.com/chilian/acts_as_sanitizable"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "Sanitizable concern to sanitize attributes the way you like"
+  gem.description = "Sanitizable concern to sanitize attributes the way you like"
   gem.email = "christoph@chilian.de"
   gem.authors = ["Christoph Chilian"]
   # dependencies defined in Gemfile
