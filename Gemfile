@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
@@ -6,9 +6,16 @@ source "http://rubygems.org"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
+  gem "rails", ">= 3.2.0", "< 5"
+  gem "sqlite3"
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
+  gem "rspec", "~> 2.14.0"
+  gem "rspec-rails"
   gem "bundler", "~> 1.0"
   gem "jeweler", "~> 2.0.1"
   gem "simplecov", ">= 0"
+  gem "activerecord", ">= 2.3.5"
+  gem "activemodel", ">= 3.0.0"
+  gem "factory_girl"
 end
