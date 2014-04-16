@@ -1,4 +1,4 @@
-# acts_as_sanitizable
+# acts_as_sanitizable [![Gem Version](https://badge.fury.io/rb/acts_as_sanitizable.svg)](http://badge.fury.io/rb/acts_as_sanitizable) [![Code Climate](https://codeclimate.com/github/chilian/acts_as_sanitizable.png)](https://codeclimate.com/github/chilian/acts_as_sanitizable)
 
 Sanitizable concern to sanitize activerecord model attributes the way you like. E.g. very useful if you want to convert empty strings from your form params into `nil`...  
 
