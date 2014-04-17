@@ -3,7 +3,7 @@ require 'active_support/concern'
 module Sanitizable
   module Macro
     # Defines one or multiple columns that should be sanitized. The method used
-    # for sanitizing can be defined via the :option key and can either contain the name
+    # for sanitizing can be defined via the :with key and can either contain the name
     # of any method that is implemented on the particular class or a custom Proc.
     # Additionally, an Array of Symbols or Procs can be speficied. Alternatively a block
     # can be supplied as sanitizer.
