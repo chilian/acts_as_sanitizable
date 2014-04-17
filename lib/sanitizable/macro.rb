@@ -22,7 +22,7 @@ module Sanitizable
 
       options = attribute_names.extract_options!.assert_valid_keys(:with, :on)
       options[:with] = block || options[:with]
-      raise ArgumentError, "#{self.name}#sanitizes must define a :with option or have block" unless options[:with]
+      raise ArgumentError, "#{self.name}#sanitizes must define a :with option or have a block" unless options[:with]
       raise ArgumentError, "#{self.name}#sanitizes must define at least one attribute" if attribute_names.empty?
 
       @sanitizable_attributes ||= []

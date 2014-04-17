@@ -21,7 +21,7 @@ describe Sanitizable do
       it 'must be defined through :with or a block' do
         expect {
           User.sanitizes :first_name
-        }.to raise_error ArgumentError, 'User#sanitizes must define a :with option or have block'
+        }.to raise_error ArgumentError, 'User#sanitizes must define a :with option or have a block'
       end
       
       it 'prefers block sanitizer over :with sanitizer' do
