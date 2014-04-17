@@ -1,3 +1,5 @@
+require 'active_support/concern'
+
 module Sanitizable
   module Model
     extend ActiveSupport::Concern

@@ -1,5 +1,3 @@
-require 'active_support/concern'
-
 module Sanitizable
   module Macro
     # Defines one or multiple columns that should be sanitized. The method used
@@ -38,7 +36,7 @@ module Sanitizable
       sanitizes(*attribute_names, &block)
     end
 
-    def skip_sanitization_on(*attribute_names)
+    def skip_sanitization_of(*attribute_names)
       if self.include?(Model)
         options = attribute_names.extract_options!.assert_valid_keys(:on)
         attribute_names = attribute_names.map(&:to_s)
@@ -47,6 +45,10 @@ module Sanitizable
           attribute_names.include?(attribute.name) and context == attribute.context
         end
       end
+    end
+
+    def skip_sanitization_on(*attribute_names)
+      skip_sanitization_of(*attribute_names)
     end
 
     def reset_sanitization
