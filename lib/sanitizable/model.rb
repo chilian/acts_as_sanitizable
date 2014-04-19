@@ -24,18 +24,20 @@ module Sanitizable
 
     private
     def _sanitize_attributes
-      context = new_record? ? :create : :update
       self.class.sanitizable_attributes.each do |attribute|
-        if attribute.context.nil? or (!attribute.context.nil? and attribute.context == context)
+        if _sanitizable_in_context?(attribute.context)
           original_value = self.send(attribute.name)
           unless original_value.nil?
-            sanitized_value = attribute.sanitizers.inject(original_value) do |prev_value, sanitizer_proc|
-              sanitizer_proc.call(prev_value)
-            end
+            sanitized_value = attribute.sanitize(original_value)
             self.send("#{attribute.name}=", sanitized_value) 
           end
         end
       end
+    end
+
+    def _sanitizable_in_context?(context)
+      actual_context = new_record? ? :create : :update
+      context.nil? or (!context.nil? and context == actual_context)
     end
   end
 end
