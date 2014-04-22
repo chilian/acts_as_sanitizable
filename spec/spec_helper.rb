@@ -4,6 +4,9 @@ require 'rubygems'
 require 'bundler/setup'
 require 'yaml'
 require 'rails/all'
+require 'coveralls'
+
+Coveralls.wear!
 
 # Bundler.setup
 

@@ -17,4 +17,5 @@ group :development do
   gem "simplecov", ">= 0"
   gem "activerecord", ">= 2.3.5"
   gem "activemodel", ">= 3.0.0"
+  gem 'coveralls', require: false
 end
