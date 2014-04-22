@@ -60,8 +60,8 @@ If you wish to not sanitize specific attributes on an inherited model you can ca
 
 ```ruby
 class Admin < User
-  skip_sanitization_on :first_name
-  skip_sanitization_on :email, on: :create
+  skip_sanitization_of :first_name
+  skip_sanitization_of :email, on: :create
 end
 ```
 
