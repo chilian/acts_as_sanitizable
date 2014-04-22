@@ -1,6 +1,13 @@
-# acts_as_sanitizable [![Gem Version](https://badge.fury.io/rb/acts_as_sanitizable.svg)](http://badge.fury.io/rb/acts_as_sanitizable) [![Build Status](https://travis-ci.org/chilian/acts_as_sanitizable.svg?branch=master)](https://travis-ci.org/chilian/acts_as_sanitizable) [![Code Climate](https://codeclimate.com/github/chilian/acts_as_sanitizable.png)](https://codeclimate.com/github/chilian/acts_as_sanitizable)
+# acts_as_sanitizable 
+[![Gem Version](https://badge.fury.io/rb/acts_as_sanitizable.svg)](http://badge.fury.io/rb/acts_as_sanitizable) [![Build Status](https://travis-ci.org/chilian/acts_as_sanitizable.svg?branch=master)](https://travis-ci.org/chilian/acts_as_sanitizable) [![Code Climate](https://codeclimate.com/github/chilian/acts_as_sanitizable.png)](https://codeclimate.com/github/chilian/acts_as_sanitizable) [![Coverage Status](https://coveralls.io/repos/chilian/acts_as_sanitizable/badge.png)](https://coveralls.io/r/chilian/acts_as_sanitizable)
 
 Sanitizable concern to sanitize activerecord model attributes the way you like. E.g. very useful if you want to convert empty strings from your form params into `nil`...  
+
+## Dependencies
+
+Ruby >= 1.9.3
+
+Rails >= 3.2.0
 
 ## Installation
 
