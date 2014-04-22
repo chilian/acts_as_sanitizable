@@ -36,6 +36,10 @@ module Sanitizable
       sanitizes(*attribute_names, &block)
     end
 
+    def acts_as_sanitizable_on(*attribute_names, &block)
+      sanitizes(*attribute_names, &block)
+    end
+
     def skip_sanitization_of(*attribute_names)
       if self.include?(Model)
         options = attribute_names.extract_options!.assert_valid_keys(:on)
