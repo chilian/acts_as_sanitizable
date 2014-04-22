@@ -10,12 +10,13 @@ module Sanitizable
     #
     # === Example:
     #   class User < ActiveRecord::Base   
-    #     sanitizes :content, with: :squish
-    #     sanitizes :name, :content, :description, with: [:strip, :upcase]
-    #     sanitizes :content do |content|
-    #       content.squish.downcase
+    #     sanitizes :first_name, :last_name, with: :strip
+    #     sanitizes :email, with: [:strip, :downcase]
+    #     sanitizes :biography, with: ->(biography) { biography.squish }
+    #     sanitizes :username do |username|
+    #       # strip leading "@" characters as used in Twitter usernames
+    #       username.strip.downcase.sub(/\A@/, '')
     #     end
-    #     sanitizes :content, with: ->(content) { content.squish.downcase }
     #   end
     def sanitizes(*attribute_names, &block)  
       include Model unless self.include?(Model)
@@ -25,11 +26,10 @@ module Sanitizable
       raise ArgumentError, "#{self.name}#sanitizes must define a :with option or have a block" unless options[:with]
       raise ArgumentError, "#{self.name}#sanitizes must define at least one attribute" if attribute_names.empty?
 
-      @sanitizable_attributes ||= []
-      @sanitizable_attributes += attribute_names.map do |attribute_name|
+      self.sanitizable_attributes += attribute_names.map do |attribute_name|
         AttributeSanitizer.new(attribute_name.to_s, options.dup)
       end
-      @sanitizable_attributes.uniq!
+      self.sanitizable_attributes.uniq!
     end
 
     def acts_as_sanitizable(*attribute_names, &block)
@@ -41,7 +41,7 @@ module Sanitizable
         options = attribute_names.extract_options!.assert_valid_keys(:on)
         attribute_names = attribute_names.map(&:to_s)
         context = options[:on]
-        @sanitizable_attributes.delete_if do |attribute|
+        sanitizable_attributes.delete_if do |attribute|
           attribute_names.include?(attribute.name) and context == attribute.context
         end
       end

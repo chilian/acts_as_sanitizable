@@ -5,18 +5,13 @@ module Sanitizable
     extend ActiveSupport::Concern
 
     included do
+      class_attribute :sanitizable_attributes
+      self.sanitizable_attributes = []
+
       before_validation :_sanitize_attributes
     end
 
     module ClassMethods
-      def inherited(base)
-        base.instance_variable_set(:@sanitizable_attributes, sanitizable_attributes.dup)
-      end
-
-      def sanitizable_attributes
-        @sanitizable_attributes ||= []
-      end
-
       def sanitizable_attribute_names
         sanitizable_attributes.collect(&:name).uniq.freeze
       end
