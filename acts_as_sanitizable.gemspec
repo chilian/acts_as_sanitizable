@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.date = "2014-04-22"
   s.description = "Sanitizable concern to sanitize attributes the way you like"
   s.email = "christoph@chilian.de"
+  s.required_ruby_version = '>= 1.9.3'
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
