@@ -41,8 +41,8 @@ module Sanitizable
     end
 
     def skip_sanitization_of(*attribute_names)
+      options = attribute_names.extract_options!.assert_valid_keys(:on)
       if self.include?(Model)
-        options = attribute_names.extract_options!.assert_valid_keys(:on)
         attribute_names = attribute_names.map(&:to_s)
         context = options[:on]
         sanitizable_attributes.delete_if do |attribute|
