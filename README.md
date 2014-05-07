@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
 end
 ```
 
-If you wish to not sanitize specific attributes on an inherited model you can call `skip_sanitization_on`. When you have been using a context in the sanitizer definition be sure to specify the same one when using `skip_sanitization_on`.
+If you wish to not sanitize specific attributes on an inherited model you can call `skip_sanitization_of`. When you have been using a context in the sanitizer definition be sure to specify the same one when using `skip_sanitization_of`.
 
 ```ruby
 class Admin < User
