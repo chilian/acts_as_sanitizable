@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary = "Sanitizable concern to sanitize attributes the way you like"
   gem.description = "Sanitizable concern to sanitize attributes the way you like"
   gem.email = "christoph@chilian.de"
-  gem.authors = ["Christoph Chilian"]
+  gem.authors = ["Christoph Chilian", "Tobias Casper"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
