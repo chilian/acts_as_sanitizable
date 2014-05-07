@@ -162,15 +162,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemodel (>= 3.0.0)
-  activerecord (>= 2.3.5)
+  activemodel (>= 3.2.0, < 5)
+  activerecord (>= 2.3, < 5)
   bundler (~> 1.0)
-  coveralls
-  jeweler (~> 2.0.1)
+  coveralls (~> 0)
+  jeweler (~> 2.0)
   rails (>= 3.2.0, < 5)
   rdoc (~> 3.12)
-  rspec (~> 2.14.0)
-  rspec-rails
-  shoulda
-  simplecov
-  sqlite3
+  rspec (~> 2.14)
+  rspec-rails (~> 2.14)
+  shoulda (~> 3.0)
+  simplecov (~> 0)
+  sqlite3 (~> 1.3)
