@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.license = "MIT"
   gem.summary = "Sanitizable concern to sanitize attributes the way you like"
   gem.description = "Sanitizable concern to sanitize attributes the way you like"
-  gem.email = "christoph@chilian.de"
+  gem.email = ["christoph@chilian.de", "tobias.casper@gmail.com"]
   gem.authors = ["Christoph Chilian", "Tobias Casper"]
   # dependencies defined in Gemfile
 end
